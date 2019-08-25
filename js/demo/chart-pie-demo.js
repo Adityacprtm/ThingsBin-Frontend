@@ -38,7 +38,8 @@ if ("WebSocket" in window) {
         for (let i = 0; i < data.length; i++) {
             createChart("piechart" + [i], data[i])
         }
-        console.log(data)
+        // console.log(data)
+        $('#numberThings').text(data.length)
     };
     ws.onclose = function () {
         // websocket is closed.
