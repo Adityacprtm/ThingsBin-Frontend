@@ -9,7 +9,7 @@ var pieChart = []
 if ("WebSocket" in window) {
     // console.log('WebSocket is supported by your Browser!')
     // Let us open a web socket
-    var ws = new WebSocket("wss://i707sboa9f.execute-api.us-east-1.amazonaws.com/test");
+    var ws = new WebSocket("wss://dx0c751wng.execute-api.ap-southeast-1.amazonaws.com/prod");
     ws.onopen = function () {
         // Web Socket is connected, send data using send()
         // console.log('Web Socket is connected')
