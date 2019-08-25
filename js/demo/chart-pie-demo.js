@@ -23,12 +23,12 @@ if ("WebSocket" in window) {
         if (data.length == 0) {
             data.push(dataTemp)
         } else {
-            if (data.some(item => item.id.S === dataTemp.id.S)) {
+            if (data.some(item => item.ID.S === dataTemp.ID.S)) {
                 for (var i in data) {
-                    if (data[i].id.S == dataTemp.id.S) {
-                        data[i].filled.N = dataTemp.filled.N
-                        data[i].percent.N = dataTemp.percent.N
-                        data[i].timestamp.N = dataTemp.timestamp.N
+                    if (data[i].ID.S == dataTemp.ID.S) {
+                        data[i].Filled.N = dataTemp.Filled.N
+                        data[i].Percent.N = dataTemp.Percent.N
+                        data[i].Timestamp.N = dataTemp.Timestamp.N
                     }
                 }
             } else {
@@ -51,7 +51,7 @@ if ("WebSocket" in window) {
 
 function createChart(pieChart, data) {
     if ($('#' + pieChart).length == 0) {
-        var templateStr = '<div class="col-xl-4 col-lg-5 col-md-6"><div class="card shadow mb-4"><div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"><h6 class="m-0 font-weight-bold text-primary">' + data.id.S + '</h6></div><div class="card-body"><div class="chart-pie pt-4 pb-2"> <canvas id="' + pieChart + '"></canvas></div><div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-danger"></i> Filled </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Empty </span></div></div></div></div>';
+        var templateStr = '<div class="col-xl-4 col-lg-5 col-md-6"><div class="card shadow mb-4"><div class="card-header py-3 d-flex flex-row align-items-center justify-content-between"><h6 class="m-0 font-weight-bold text-primary">' + data.ID.S + '</h6></div><div class="card-body"><div class="chart-pie pt-4 pb-2"> <canvas id="' + pieChart + '"></canvas></div><div class="mt-4 text-center small"> <span class="mr-2"> <i class="fas fa-circle text-danger"></i> Filled </span> <span class="mr-2"> <i class="fas fa-circle text-success"></i> Empty </span></div></div></div></div>';
         $('#pieChartArea').append(templateStr)
     }
     var ctx = document.getElementById(pieChart);
@@ -60,7 +60,7 @@ function createChart(pieChart, data) {
         data: {
             labels: ["Filled", "Empty"],
             datasets: [{
-                data: [parseFloat(data.percent.N), 100.00 - parseFloat(data.filled.N)],
+                data: [parseFloat(data.Percent.N), 100.00 - parseFloat(data.Percent.N)],
                 backgroundColor: ['#dd1d1d', '#1cc88a'],
                 hoverBackgroundColor: ['#b01717', '#17a673'],
                 hoverBorderColor: "rgba(234, 236, 244, 1)",
