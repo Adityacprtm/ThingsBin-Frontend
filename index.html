@@ -309,9 +309,14 @@
                                         <canvas id="myBarChart"></canvas>
                                     </div>
                                     <hr>
-                                    Styling for the bar chart can be found in the
-                                    <code>/js/demo/chart-bar-demo.js</code>
-                                    file.
+                                    <form>
+                                        Select Date <input class="form" type="date" name="selectedDate"
+                                            id="selectedDate" value="" required>
+                                        <button class="btn btn-primary" type="button" id="inputDate">Select</button>
+                                        <div class="alert alert-danger" role="alert" id="nan" style="display: none">
+                                            Data not yet available on the selected date!
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>
