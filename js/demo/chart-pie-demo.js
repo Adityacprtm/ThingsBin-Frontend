@@ -12,7 +12,7 @@ if ("WebSocket" in window) {
     var ws = new WebSocket("wss://dx0c751wng.execute-api.ap-southeast-1.amazonaws.com/prod");
     ws.onopen = function () {
         // Web Socket is connected, send data using send()
-        // console.log('Web Socket is connected')
+        console.log('Web Socket is connected')
     };
     ws.onmessage = function (evt) {
         console.log('success Receive Data')
