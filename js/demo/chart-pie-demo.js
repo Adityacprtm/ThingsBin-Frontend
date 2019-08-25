@@ -7,15 +7,15 @@ var data = []
 var pieChart = []
 
 if ("WebSocket" in window) {
-    console.log('WebSocket is supported by your Browser!')
+    // console.log('WebSocket is supported by your Browser!')
     // Let us open a web socket
     var ws = new WebSocket("wss://dx0c751wng.execute-api.ap-southeast-1.amazonaws.com/prod");
     ws.onopen = function () {
         // Web Socket is connected, send data using send()
-        console.log('Web Socket is connected')
+        // console.log('Web Socket is connected')
     };
     ws.onmessage = function (evt) {
-        console.log('success Receive Data')
+        // console.log('success Receive Data')
         // console.log(JSON.parse(evt.data).M)
         // data.push(JSON.parse(evt.data).M)
         let dataTemp = JSON.parse(evt.data).M
@@ -43,7 +43,7 @@ if ("WebSocket" in window) {
     };
     ws.onclose = function () {
         // websocket is closed.
-        console.log('Web Socket is disconnected')
+        // console.log('Web Socket is disconnected')
     };
 } else {
     // The browser doesn't support WebSocket

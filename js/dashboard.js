@@ -30,9 +30,9 @@ ThingsBin.map = ThingsBin.map || {};
                 $('.authToken').text(token);
             }
         });
-        // if (!_config.api.invokeUrl) {
-        //     $('#noApiMessage').show();
-        // }
+        if (!_config.api.invokeUrl) {
+            $('#noApiMessage').show();
+        }
     });
 
     function displayUpdate(text) {

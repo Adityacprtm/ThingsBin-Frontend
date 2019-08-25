@@ -21,16 +21,16 @@ function requestData() {
     } else {
         selectedDate = $('#selectedDate').val()
     }
-    let timestamp = new Date(selectedDate).getTime() / 1000
+    let timestamp = new Date(selectedDate).getTime()
     $.ajax({
         method: 'GET',
-        url: 'https://fmpazxgdc5.execute-api.us-east-1.amazonaws.com/swam/getanalisis?time=' + timestamp,
+        url: _config.api.invokeUrl + '/analisis?time=' + timestamp,
         contentType: 'application/json',
         success: completeGet,
         error: function ajaxError(jqXHR, textStatus, errorThrown) {
             console.error('Error requesting ride: ', textStatus, ', Details: ', errorThrown);
             console.error('Response: ', jqXHR.responseText);
-            alert('An error occured when requesting your unicorn:\n' + jqXHR.responseText);
+            alert('An error occured when requesting :\n' + jqXHR.responseText);
         }
     });
 }
@@ -128,7 +128,7 @@ myBarChart = new Chart(ctx, {
                     padding: 10,
                     // Include a dollar sign in the ticks
                     callback: function (value, index, values) {
-                        return number_format(value) + ' cm';
+                        return value + ' cm';
                     }
                 },
                 gridLines: {
@@ -158,7 +158,7 @@ myBarChart = new Chart(ctx, {
             callbacks: {
                 label: function (tooltipItem, chart) {
                     var datasetLabel = chart.datasets[tooltipItem.datasetIndex].label || '';
-                    return datasetLabel + ': $' + number_format(tooltipItem.yLabel);
+                    return datasetLabel + ': ' + tooltipItem.yLabel + ' cm';
                 }
             }
         },
